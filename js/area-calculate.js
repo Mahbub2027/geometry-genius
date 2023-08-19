@@ -13,8 +13,9 @@ function clickTriangleArea(){
     const area = 0.5 * base * height;
     console.log(area);
 
-    const triangleAreaCalculate = document.getElementById('triangle-area-calculate');
-    triangleAreaCalculate.innerText = area;
+    // const triangleAreaCalculate = document.getElementById('triangle-area-calculate');
+    // triangleAreaCalculate.innerText = area;
+    getAreaCalculate('triangle-area-calculate', area);
 }
 
 // for rectangle area
@@ -29,9 +30,38 @@ function clickRectangleArea(){
     const rectHeight = parseFloat(rectangleHeightString);
     console.log(rectHeight);
 
-    const rectArea = rectHeight * rectHeight;
+    const rectArea = rectWeight * rectHeight;
     console.log(rectArea);
 
-    const rectangleAreaCalculate = document.getElementById('rectangle-area-calculate');
-    rectangleAreaCalculate.innerText = rectArea;
+    // const rectangleAreaCalculate = document.getElementById('rectangle-area-calculate');
+    // rectangleAreaCalculate.innerText = rectArea;
+    getAreaCalculate('rectangle-area-calculate', rectArea);
+}
+// Parallelogram 
+function clickParallelogramArea(){
+    const parallelogramBase = getinputField('parallelogram-base');
+    console.log(parallelogramBase);
+
+    const parallelogramHeight = getinputField('parallelogram-height');
+    console.log(parallelogramHeight);
+
+    const parallelogramArea = parallelogramBase * parallelogramHeight;
+    console.log(parallelogramArea);
+
+    getAreaCalculate('parallelogram-area-calculate', parallelogramArea);
+}
+
+// for reuse code 
+function getinputField(FieldId){
+    const inputField = document.getElementById(FieldId);
+    const inputFieldString = inputField.value;
+    const value = parseFloat(inputFieldString);
+    return value;
+
+}
+//  set value 
+function getAreaCalculate(calculate, newValue){
+    const areaCalculate = document.getElementById(calculate);
+    areaCalculate.innerText= newValue;
+    
 }
